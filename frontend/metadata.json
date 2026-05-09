@@ -1,0 +1,7 @@
+{
+  "name": "Roomzy AI",
+  "description": "The AI-powered interior design assistant for Indian homes. Transforms rooms with Vastu compliance, budget estimation, and local carpenter vs. retail price comparisons.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
