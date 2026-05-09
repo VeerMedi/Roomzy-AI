@@ -1,10 +1,11 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "src/server.ts",
+  "main": "dist/server.js",
   "scripts": {
+    "build": "tsc",
     "dev": "ts-node-dev --respawn src/server.ts",
-    "start": "ts-node src/server.ts",
+    "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
