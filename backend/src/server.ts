@@ -36,7 +36,7 @@ const generateImageWithFreepik = async (prompt: string, style: string): Promise<
     if (!apiKey) throw new Error("Freepik API key not found");
 
     try {
-        const response = await fetch("https://api.freepik.com/v1/ai/text-to-image", {
+        const response = await fetch("https://api.magnific.com/v1/ai/mystic", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

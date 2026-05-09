@@ -7,3 +7,8 @@ frontend/dist
 backend/node_modules
 backend/dist
 *.log
+
+# Environment variables
+.env
+.env.*
+!.env.example
