@@ -35,8 +35,10 @@ const generateImageWithFreepik = async (prompt: string, style: string): Promise<
     const apiKey = process.env.VITE_FREEPIK_API_KEY || process.env.FREEPIK_API_KEY;
     if (!apiKey) throw new Error("Freepik API key not found");
 
+    console.log(`[Freepik] Generating image with prompt: ${prompt}`);
+
     try {
-        const response = await fetch("https://api.magnific.com/v1/ai/mystic", {
+        const response = await fetch("https://api.freepik.com/v1/ai/text-to-image", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -62,15 +64,19 @@ const generateImageWithFreepik = async (prompt: string, style: string): Promise<
                 // If not JSON, use the raw text if available
                 errorMessage = errorText || errorMessage;
             }
+            console.error(`[Freepik] API Error: ${response.status} - ${errorMessage}`);
             throw new Error(`Freepik API error (${response.status}): ${errorMessage}`);
         }
 
         const data: any = await response.json();
         if (data.data?.[0]?.base64) {
+            console.log(`[Freepik] Success (Base64)`);
             return `data:image/png;base64,${data.data[0].base64}`;
         } else if (data.data?.[0]?.url) {
+            console.log(`[Freepik] Success (URL): ${data.data[0].url}`);
             return data.data[0].url;
         } else {
+            console.error(`[Freepik] No image data in response:`, JSON.stringify(data));
             throw new Error("No image data returned from Freepik");
         }
     } catch (error) {
