@@ -1,5 +1,5 @@
 {
-    "name": "roomzy ai",
+    "name": "roomzyai",
     "version": "1.0.0",
     "scripts": {
         "start": "concurrently \"npm run backend\" \"npm run frontend\"",
