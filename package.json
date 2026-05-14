@@ -1,5 +1,5 @@
 {
-    "name": "Roomzy AI-monorepo",
+    "name": "roomzy ai",
     "version": "1.0.0",
     "scripts": {
         "start": "concurrently \"npm run backend\" \"npm run frontend\"",
